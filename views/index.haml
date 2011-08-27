@@ -1,0 +1,7 @@
+!!!
+%html
+	%head
+		%link(href = "s.css" rel = "stylesheet" type = "text/css")
+	%body
+		- @lol.each do |key,value|
+			%p= key.to_s + " = " + value.to_s
