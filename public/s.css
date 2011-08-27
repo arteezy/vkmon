@@ -1,6 +1,28 @@
-p {
-	color: black;
-	font-family: tahoma;
-	font-size: 12pt;
-	margin-bottom: -7px
-	}
+body { 
+background-image:url('bg.png');
+}
+
+div.box {
+background-color: white;
+width: 220px;
+padding: 10px;
+border: 2px solid darkslateblue;
+margin: 50px;
+/* Box Shadow */
+-webkit-box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, 0.5);
+-moz-box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, 0.5);
+box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, 0.5);
+/* Border Radius */
+-webkit-border-radius: 12px;
+-moz-border-radius: 12px;
+border-radius: 12px;
+}
+
+p {	
+color: black;
+font-family: arial;
+font-size: 12pt;
+margin-left: 5px;
+margin-top: 2px;
+margin-bottom: 2px;
+}

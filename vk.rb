@@ -13,6 +13,7 @@ helpers do
     uri = URI.parse(myreq)
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
     request = Net::HTTP::Get.new(uri.request_uri)
     response = http.request(request)
@@ -22,6 +23,6 @@ helpers do
 end
 
 get '/' do
-  @lol = mon
+  @ans = mon
   haml :index
 end
