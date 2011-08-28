@@ -4,6 +4,8 @@
 		%link(href = "s.css" rel = "stylesheet" type = "text/css")
 		%title= "VKontakte Monitor"
 	%body
+		%div(class = "online")
+			%p.online= @ans["online"] ? "Online" : "Offline"
 		%div(class = "box")
 			- @ans.each do |key,value|
 				%p= key.to_s + " = " + value.to_s
