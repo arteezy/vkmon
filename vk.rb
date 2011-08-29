@@ -4,6 +4,10 @@ require 'net/https'
 require 'json'
 require 'uri'
 
+use Rack::Auth::Basic do |username, password|
+  username == 'admin' && password == 'vk182182'
+end
+
 helpers do
   def mon
     id = 3727331
