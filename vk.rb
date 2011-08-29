@@ -3,9 +3,10 @@ require 'haml'
 require 'net/https'
 require 'json'
 require 'uri'
+require 'digest/md5'
 
 use Rack::Auth::Basic do |username, password|
-  username == 'admin' && password == 'vk182182'
+  Digest::MD5.hexdigest(username) == '21232f297a57a5a743894a0e4a801fc3' && Digest::MD5.hexdigest(password) == '404a4b240bff8fa46ed34f15a441d61e'
 end
 
 helpers do
