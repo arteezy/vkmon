@@ -11,9 +11,7 @@ end
 
 helpers do
   def mon
-    id = 3727331
-
-    myreq = 'https://api.vkontakte.ru/method/getProfiles?uid=' + id.to_s + '&fields=online,domain,rate,bdate'
+    myreq = 'https://api.vkontakte.ru/method/getProfiles?uid=' + @id.to_s + '&fields=online,domain,rate,bdate'
 
     uri = URI.parse(myreq)
     http = Net::HTTP.new(uri.host, uri.port)
@@ -28,6 +26,13 @@ helpers do
 end
 
 get '/' do
+  @id = 3727331
+  @ans = mon
+  haml :index
+end
+
+get '/:id' do
+  @id = params[:id]
   @ans = mon
   haml :index
 end
