@@ -5,7 +5,7 @@
 		%title= "VKontakte Monitor"
 	%body
 		%div(class = "online")
-			%p.online= @ans["online"] ? "Online" : "Offline"
+			%p.online= @ans["online"] == 1 ? "Online" : "Offline"
 		%div(class = "box")
 			- @ans.each do |key,value|
 				%p= key.to_s + " = " + value.to_s
