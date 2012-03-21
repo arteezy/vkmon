@@ -11,7 +11,7 @@ end
 
 helpers do
   def mon
-    myreq = 'https://api.vk.com/method/getProfiles?uid=' + @id.to_s + '&fields=online,domain,rate,bdate'
+    myreq = 'https://api.vk.com/method/users.get?uid=' + @id.to_s + '&fields=online,domain,rate,bdate'
 
     uri = URI.parse(myreq)
     http = Net::HTTP.new(uri.host, uri.port)
