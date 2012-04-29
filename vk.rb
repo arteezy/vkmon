@@ -23,20 +23,21 @@ helpers do
     ans = JSON.parse(response.body.slice(13..-3)) 	 
     return ans
   end
+  
+  def prep
+    @ans = mon
+    @photo = @ans.delete("photo_big")
+    @time = @ans.delete("last_seen")
+    haml :index
+  end
 end
 
 get '/' do
   @id = 3727331
-  @ans = mon
-  @photo = @ans.delete("photo_big")
-  @time = @ans.delete("last_seen")
-  haml :index
+  prep
 end
 
 get '/:id' do
   @id = params[:id]
-  @ans = mon
-  @photo = @ans.delete("photo_big")
-  @time = @ans.delete("last_seen")
-  haml :index
+  prep
 end
