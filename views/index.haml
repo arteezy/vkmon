@@ -7,7 +7,7 @@
 		%div(class = "online")
 			%p.online= @ans["online"] == 1 ? "Online" : "Offline"
 		%div(class = "box")
-			- @time = @ans.delete("last_seen")
+			%img(src = @photo align = "left" alt = "Userpic")
 			- @ans.each do |key,value|
 				%p= key.to_s + " = " + value.to_s
 			%p= "last_seen = " + Time.at(@time["time"]).asctime.slice(4..-5)

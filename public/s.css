@@ -4,10 +4,11 @@ background-image:url('bg.png');
 
 div.box {
 background-color: white;
-width: 220px;
+width: 420px;
 padding: 10px;
 border: 2px solid darkslateblue;
 margin: 50px;
+overflow: auto;
 /* Box Shadow */
 -webkit-box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, 0.5);
 -moz-box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, 0.5);
@@ -33,6 +34,10 @@ box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, 0.5);
 -webkit-border-radius: 12px;
 -moz-border-radius: 12px;
 border-radius: 12px;
+}
+
+img {
+margin-right: 10px;	
 }
 
 p {	

@@ -11,7 +11,7 @@ end
 
 helpers do
   def mon
-    myreq = 'https://api.vk.com/method/users.get?uid=' + @id.to_s + '&fields=online,domain,rate,bdate,last_seen'
+    myreq = 'https://api.vk.com/method/users.get?uid=' + @id.to_s + '&fields=online,domain,rate,bdate,photo_big,last_seen'
 
     uri = URI.parse(myreq)
     http = Net::HTTP.new(uri.host, uri.port)
@@ -28,13 +28,15 @@ end
 get '/' do
   @id = 3727331
   @ans = mon
-  @time = 0
+  @photo = @ans.delete("photo_big")
+  @time = @ans.delete("last_seen")
   haml :index
 end
 
 get '/:id' do
   @id = params[:id]
   @ans = mon
-  @time = 0
+  @photo = @ans.delete("photo_big")
+  @time = @ans.delete("last_seen")
   haml :index
 end
