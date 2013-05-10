@@ -1,12 +1,12 @@
-!!!
+!!! 5
 %html
 	%head
 		%link(href = "s.css" rel = "stylesheet" type = "text/css")
 		%title= "VKontakte Monitor"
 	%body
-		%div(class = "online")
+		.online
 			%p.online= @ans["online"] == 1 ? "Online" : "Offline"
-		%div(class = "box")
+		.box
 			%img(src = @photo align = "left" alt = "Userpic")
 			- @ans.each do |key,value|
 				%p= key.to_s + " = " + value.to_s
