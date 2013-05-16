@@ -3,15 +3,10 @@ require 'haml'
 require 'net/https'
 require 'json'
 require 'uri'
-require 'digest/md5'
-
-use Rack::Auth::Basic do |username, password|
-  Digest::MD5.hexdigest(username) == '21232f297a57a5a743894a0e4a801fc3' && Digest::MD5.hexdigest(password) == '404a4b240bff8fa46ed34f15a441d61e'
-end
 
 helpers do
-  def mon
-    myreq = 'https://api.vk.com/method/users.get?uid=' + @id.to_s + '&fields=online,domain,rate,bdate,photo_big,last_seen'
+  def api_request_parser
+    api_request = 'https://api.vk.com/method/users.get?uid=' + @id.to_s + '&fields=online,domain,rate,bdate,photo_big,last_seen'
 
     uri = URI.parse(myreq)
     http = Net::HTTP.new(uri.host, uri.port)
@@ -20,24 +15,23 @@ helpers do
 
     request = Net::HTTP::Get.new(uri.request_uri)
     response = http.request(request)
-    ans = JSON.parse(response.body.slice(13..-3)) 	 
-    return ans
+    json_answer = JSON.parse(response.body.slice(13..-3))
   end
-  
-  def prep
-    @ans = mon
-    @photo = @ans.delete("photo_big")
-    @time = @ans.delete("last_seen")
+
+  def pass_to_render
+    @json_answer = api_request_parser
+    @photo_big = @json_answer.delete("photo_big")
+    @time_last_seen = @json_answer.delete("last_seen")
     haml :index
   end
 end
 
 get '/' do
   @id = 3727331
-  prep
+  pass_to_render
 end
 
 get '/:id' do
   @id = params[:id]
-  prep
+  pass_to_render
 end
