@@ -8,7 +8,7 @@ helpers do
   def api_request_parser
     api_request = 'https://api.vk.com/method/users.get?uid=' + @id.to_s + '&fields=online,domain,rate,bdate,photo_big,last_seen'
 
-    uri = URI.parse(myreq)
+    uri = URI.parse(api_request)
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
