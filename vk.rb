@@ -5,8 +5,9 @@ require 'json'
 require 'uri'
 
 helpers do
-  def api_request_parser
-    api_request = 'https://api.vk.com/method/users.get?uid=' + @id.to_s + '&fields=online,domain,rate,bdate,photo_big,last_seen'
+  def api_request_parser(id)
+    fields = %w(online education city domain rate bdate photo_big last_seen)
+    api_request = "https://api.vk.com/method/users.get?user_ids=#{id.to_s}&v=5.27&fields=#{fields.join(',')}"
 
     uri = URI.parse(api_request)
     http = Net::HTTP.new(uri.host, uri.port)
@@ -15,23 +16,20 @@ helpers do
 
     request = Net::HTTP::Get.new(uri.request_uri)
     response = http.request(request)
-    json_answer = JSON.parse(response.body.slice(13..-3))
+    json_answer = JSON.parse(response.body)["response"].first
   end
 
-  def pass_to_render
-    @json_answer = api_request_parser
-    @photo_big = @json_answer.delete("photo_big")
-    @time_last_seen = @json_answer.delete("last_seen")
+  def pass_to_render(id)
+    @json_answer = api_request_parser(id)
     haml :index
   end
 end
 
 get '/' do
-  @id = 3727331
-  pass_to_render
+  id = 3727331
+  pass_to_render(id)
 end
 
 get '/:id' do
-  @id = params[:id]
-  pass_to_render
+  pass_to_render(params[:id])
 end
