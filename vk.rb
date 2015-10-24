@@ -26,7 +26,7 @@ helpers do
 end
 
 get '/' do
-  id = '3727331'
+  id = ENV.fetch('ID')
   pass_to_render(id)
 end
 
