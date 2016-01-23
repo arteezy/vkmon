@@ -1,4 +1,15 @@
+# Ignore bundler config
+/.bundle
+
+# Ignore all logfiles and tempfiles
+/log
+/tmp
+
+# Ignore Byebug command history file
+.byebug_history
+
+# Ignore Mac OS X specific files
 .DS_Store
-Gemfile.lock
-*.log
+
+# Ignore local environment variables config
 .env
