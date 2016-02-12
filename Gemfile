@@ -20,12 +20,34 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  # Use RSpec for advanced testing
+  gem 'rspec-rails', '~> 3.2'
+  # Use Factory Girl as factories generator for specs
+  gem 'factory_girl_rails', '~> 4.5'
+  # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console
+  gem 'pry-byebug'
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console'
-  gem 'listen', '~> 3.0.5'
+  # Use Better Errors gem to replace errors page
+  gem 'better_errors'
+  # Use binding_of_caller gem to enable live REPL on error pages
+  gem 'binding_of_caller'
+  # Use Awesome Print to make debugging more visually comprehensive
+  gem 'awesome_print'
+  # Use Listen gem to be notified about file changes
+  gem 'listen', '~> 3.1'
+end
+
+group :test do
+  # Use Faker gem to generate fake test data
+  gem 'faker', '~> 1.4'
+  # Use Capybara for integration specs
+  gem 'capybara', '~> 2.4'
+  # Use DatabaseCleaner to wipe DB before tests
+  gem 'database_cleaner', '~> 1.5'
+  # Use Launchy as helper to Capybara specs
+  gem 'launchy', '~> 2.4'
+  # Use Code Climate to measure test coverage and code quality
+  gem 'codeclimate-test-reporter'
 end
