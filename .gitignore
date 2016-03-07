@@ -8,6 +8,9 @@
 # Ignore Byebug command history file
 .byebug_history
 
+# Ignore Code Climate test coverage reports
+/coverage
+
 # Ignore Mac OS X specific files
 .DS_Store
 
