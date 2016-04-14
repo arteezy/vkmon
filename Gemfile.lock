@@ -39,8 +39,9 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.4.0)
-    arel (7.1.1)
+    arel (7.1.2)
     awesome_print (1.7.0)
+    bcrypt (3.1.11)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -56,6 +57,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    clearance (1.14.2)
+      bcrypt
+      email_validator (~> 1.4)
+      rails (>= 3.1)
     codeclimate-test-reporter (0.6.0)
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.1)
@@ -71,6 +76,8 @@ GEM
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    email_validator (1.6.0)
+      activemodel
     erubis (2.7.0)
     execjs (2.7.0)
     factory_girl (4.7.0)
@@ -212,6 +219,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   capybara (~> 2.4)
+  clearance (~> 1.14)
   codeclimate-test-reporter
   coffee-rails (~> 4.2)
   database_cleaner (~> 1.5)
@@ -233,4 +241,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.5
+   1.13.0

@@ -18,6 +18,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+# Use Clearance for authentication with email & password
+gem 'clearance', '~> 1.14'
 
 group :development, :test do
   # Use RSpec for advanced testing
