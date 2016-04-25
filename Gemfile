@@ -39,6 +39,10 @@ group :development do
   gem 'awesome_print'
   # Use Listen gem to be notified about file changes
   gem 'listen', '~> 3.1'
+  # Spring speeds up development by keeping your application running in the background
+  gem 'spring'
+  # This gem implements the rspec command for Spring
+  gem 'spring-commands-rspec'
 end
 
 group :test do
