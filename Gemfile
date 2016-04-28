@@ -35,6 +35,8 @@ group :development do
   gem 'better_errors'
   # Use binding_of_caller gem to enable live REPL on error pages
   gem 'binding_of_caller'
+  # Use Pry as Rails console replacement
+  gem 'pry-rails'
   # Use Awesome Print to make debugging more visually comprehensive
   gem 'awesome_print'
   # Use Listen gem to be notified about file changes
