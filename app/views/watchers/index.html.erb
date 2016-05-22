@@ -1,0 +1,7 @@
+<ul>
+  <% @watchers.each do |watcher| %>
+    <li><%= watcher.name %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back', request.referrer || root_path %>
