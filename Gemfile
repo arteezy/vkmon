@@ -14,6 +14,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '~> 3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
+# Use Bootstrap 4 as CSS framework
+gem 'bootstrap', '~> 4.0.0.alpha4'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
