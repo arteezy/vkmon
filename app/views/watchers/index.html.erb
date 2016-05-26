@@ -1,7 +1,31 @@
-<ul>
-  <% @watchers.each do |watcher| %>
-    <li><%= watcher.name %></li>
-  <% end %>
-</ul>
+<div class='row'>
+  <div class='col-sm-8'>
+    <%= form_for @watcher, html: { class: 'form-inline' } do |f| %>
+      <div class='form-group'>
+        <%= f.text_field :vk_id, class: 'form-control', placeholder: 'VK ID' %>
+      </div>
+      <div class='form-group'>
+        <%= f.text_field :name, class: 'form-control', placeholder: 'Full Name' %>
+      </div>
+      <div class='form-group'>
+        <%= f.text_field :photo, class: 'form-control', placeholder: 'Photo' %>
+      </div>
+      <%= f.submit 'Create', class: 'btn btn-danger' %>
+    <% end %>
+  </div>
+</div>
 
-<%= link_to 'Back', request.referrer || root_path %>
+<div class='row'>
+  <div class='col-sm-8'>
+    <ul>
+      <% @watchers.each do |watcher| %>
+        <li>
+          <%= watcher.name %>
+          <%= link_to 'Destroy', watcher, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<%= link_to 'Back', request.referrer || root_path, class: 'btn btn-warning' %>

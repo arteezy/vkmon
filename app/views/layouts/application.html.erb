@@ -8,19 +8,42 @@
   </head>
 
   <body>
-    <% if signed_in? %>
-      Signed in as: <%= current_user.email %>
-      <%= button_to 'Sign out', sign_out_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign in', sign_in_path %>
-    <% end %>
+    <div class='container'>
+      <div class='row'>
+        <nav class='navbar navbar-full navbar-dark bg-primary'>
+          <%= link_to 'VKMon', root_path, class: 'navbar-brand' %>
+          <div class='nav navbar-nav'>
+            <%= link_to 'Watchers', watchers_path, class: 'nav-link nav-item' %>
+          </div>
+          <div class='nav navbar-nav pull-xs-right'>
+          <% if signed_in? %>
+            <%= link_to current_user.email, new_password_path, class: 'nav-link nav-item' %>
+            <%= link_to 'Sign out', sign_out_path, method: :delete, class: 'nav-link nav-item' %>
+          <% else %>
+            <%= link_to 'Sign in', sign_in_path, class: 'nav-link nav-item' %>
+          <% end %>
+          </div>
+        </nav>
+      </div>
 
-    <div id='flash'>
-      <% flash.each do |key, value| %>
-        <div class="flash <%= key %>"><%= value %></div>
+      <% unless flash.blank? %>
+        <div class='row'>
+          <div class='col-sm-12'>
+            <div id='flash'>
+              <% flash.each do |key, value| %>
+                <div class='flash alert alert-dismissible fade in alert-<%= key == 'notice' ? 'info' : 'danger' %>'>
+                  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                  </button>
+                  <%= value %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
       <% end %>
-    </div>
 
-    <%= yield %>
+      <%= yield %>
+    </div>
   </body>
 </html>
