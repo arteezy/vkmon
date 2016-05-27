@@ -1,10 +1,11 @@
 class WatchersController < ApplicationController
+  before_action :require_login
   before_action :set_watcher, only: :destroy
 
   # GET /watchers
   def index
     @watcher = Watcher.new
-    @watchers = Watcher.all
+    @watchers = current_user.watchers
   end
 
   # POST /watchers

@@ -20,6 +20,7 @@
     <ul>
       <% @watchers.each do |watcher| %>
         <li>
+          <%= watcher.vk_id %>
           <%= watcher.name %>
           <%= link_to 'Destroy', watcher, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
         </li>
