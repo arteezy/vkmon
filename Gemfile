@@ -22,6 +22,8 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 # Use Clearance for authentication with email & password
 gem 'clearance', '~> 1.14'
+# Fast Ruby HTTP client with timeouts and streaming support
+gem 'httparty', '~> 0.14'
 
 group :development, :test do
   # Use RSpec for advanced testing
