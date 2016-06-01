@@ -9,23 +9,23 @@
 
   <body>
     <div class='container'>
-      <div class='row'>
-        <nav class='navbar navbar-full navbar-dark bg-primary'>
-          <%= link_to 'VKMon', root_path, class: 'navbar-brand' %>
-          <div class='nav navbar-nav'>
-            <%= link_to 'Watchers', watchers_path, class: 'nav-link nav-item' %>
-          </div>
-          <div class='nav navbar-nav pull-xs-right'>
-          <% if signed_in? %>
-            <%= link_to current_user.email, new_password_path, class: 'nav-link nav-item' %>
-            <%= link_to 'Sign out', sign_out_path, method: :delete, class: 'nav-link nav-item' %>
-          <% else %>
-            <%= link_to 'Sign in', sign_in_path, class: 'nav-link nav-item' %>
-          <% end %>
-          </div>
-        </nav>
-      </div>
+      <nav class='navbar navbar-full navbar-dark bg-primary'>
+        <%= link_to 'VKMon', root_path, class: 'navbar-brand' %>
+        <div class='nav navbar-nav'>
+          <%= link_to 'Watchers', watchers_path, class: 'nav-link nav-item' %>
+        </div>
+        <div class='nav navbar-nav float-xs-right'>
+        <% if signed_in? %>
+          <%= link_to current_user.email, new_password_path, class: 'nav-link nav-item' %>
+          <%= link_to 'Sign out', sign_out_path, method: :delete, class: 'nav-link nav-item' %>
+        <% else %>
+          <%= link_to 'Sign in', sign_in_path, class: 'nav-link nav-item' %>
+        <% end %>
+        </div>
+      </nav>
+    </div>
 
+    <div class='container'>
       <% unless flash.blank? %>
         <div class='row'>
           <div class='col-sm-12'>
