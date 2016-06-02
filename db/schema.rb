@@ -10,10 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160522080622) do
+ActiveRecord::Schema.define(version: 20160601225127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friends", force: :cascade do |t|
+    t.string   "first_name",  null: false
+    t.string   "last_name",   null: false
+    t.boolean  "sex",         null: false
+    t.string   "nickname"
+    t.string   "domain",      null: false
+    t.date     "bdate"
+    t.string   "city"
+    t.string   "country"
+    t.string   "photo",       null: false
+    t.boolean  "has_mobile"
+    t.boolean  "online",      null: false
+    t.string   "deactivated"
+    t.string   "status"
+    t.datetime "last_seen"
+    t.integer  "platform"
+    t.string   "university"
+    t.string   "graduation"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "friends_watchers", id: false, force: :cascade do |t|
+    t.integer "friend_id"
+    t.integer "watcher_id"
+    t.index ["friend_id"], name: "index_friends_watchers_on_friend_id", using: :btree
+    t.index ["watcher_id"], name: "index_friends_watchers_on_watcher_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                     null: false
