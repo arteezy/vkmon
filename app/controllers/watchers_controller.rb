@@ -13,6 +13,7 @@ class WatchersController < ApplicationController
     @watcher = Watcher.new(watcher_params)
     @watcher.user = current_user
     if @watcher.save
+      FetchFriendsJob.perform_later(@watcher)
       redirect_to watchers_url, notice: 'Successfully created watcher'
     else
       redirect_to watchers_url, alert: 'Unable to create watcher'

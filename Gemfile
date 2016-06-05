@@ -61,5 +61,5 @@ group :test do
   # Use Launchy as helper to Capybara specs
   gem 'launchy', '~> 2.4'
   # Use Code Climate to measure test coverage and code quality
-  gem 'codeclimate-test-reporter'
+  gem 'codeclimate-test-reporter', '~> 0.6'
 end
