@@ -16,16 +16,29 @@
 </div>
 
 <div class='row'>
-  <div class='col-sm-8'>
-    <ul>
-      <% @watchers.each do |watcher| %>
-        <li>
-          <%= watcher.vk_id %>
-          <%= watcher.name %>
-          <%= link_to 'Destroy', watcher, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
-        </li>
-      <% end %>
-    </ul>
+  <div class='col-sm-12'>
+    <div class='table-responsive'>
+      <table class='table table-striped table-hover'>
+        <thead>
+          <tr>
+            <th>VK ID</th>
+            <th>Name</th>
+            <th>Friends</th>
+            <th>Destroy?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @watchers.each do |watcher| %>
+            <tr>
+              <td><%= watcher.vk_id %></td>
+              <td><%= watcher.name %></td>
+              <td><%= watcher.friends.size %></td>
+              <td><%= link_to 'Destroy', watcher, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
