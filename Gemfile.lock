@@ -55,6 +55,9 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
     builder (3.2.2)
+    bullet (5.4.2)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.10.0)
     byebug (9.0.6)
     capybara (2.10.1)
       addressable
@@ -219,6 +222,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.3)
       execjs (>= 0.3.0, < 3)
+    uniform_notifier (1.10.0)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -233,6 +237,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap (~> 4.0.0.alpha4)
+  bullet
   capybara (~> 2.4)
   clearance (~> 1.14)
   codeclimate-test-reporter (~> 0.6)

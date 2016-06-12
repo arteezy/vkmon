@@ -49,6 +49,8 @@ group :development do
   gem 'spring'
   # This gem implements the rspec command for Spring
   gem 'spring-commands-rspec'
+  # Use Bullet gem to find slow queries and unused eager loading
+  gem 'bullet'
 end
 
 group :test do
