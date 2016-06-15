@@ -7,7 +7,7 @@ class VK
     @options = { user_id: user_id }
   end
 
-  def friends(method = :friends, order = :name)
+  def friends(method = :friends, order = :id)
     fields = %w(nickname domain sex bdate city country photo_200_orig has_mobile
                 contacts education online relation last_seen status universities)
     query = @options.merge(order: order, fields: fields.join(','))
