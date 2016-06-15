@@ -8,6 +8,11 @@ class WatchersController < ApplicationController
     @watchers = current_user.watchers
   end
 
+  # GET /watchers/1
+  def show
+    @watcher = Watcher.includes(:friends).find(params[:id])
+  end
+
   # POST /watchers
   def create
     @watcher = Watcher.new(watcher_params)

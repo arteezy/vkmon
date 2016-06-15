@@ -30,7 +30,7 @@
         <tbody>
           <% @watchers.each do |watcher| %>
             <tr>
-              <td><%= watcher.vk_id %></td>
+              <td><%= link_to watcher.vk_id, watcher %></td>
               <td><%= watcher.name %></td>
               <td><%= watcher.friends.size %></td>
               <td><%= link_to 'Destroy', watcher, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
