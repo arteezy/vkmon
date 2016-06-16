@@ -12,7 +12,13 @@
         </thead>
         <tbody>
           <% @watcher.friends.each do |friend| %>
-            <tr>
+            <% if @watcher.added_friends.include?(friend.id) %>
+              <tr class='bg-success' %>
+            <% elsif @watcher.deleted_friends.include?(friend.id) %>
+              <tr class='bg-danger' %>
+            <% else %>
+              <tr>
+            <% end %>
               <td><%= friend.id %></td>
               <td><%= friend.first_name %></td>
               <td><%= friend.last_name %></td>
