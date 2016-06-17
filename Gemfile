@@ -39,6 +39,10 @@ group :development do
   gem 'better_errors'
   # Use binding_of_caller gem to enable live REPL on error pages
   gem 'binding_of_caller'
+  # Use Bullet gem to find slow queries and unused eager loading
+  gem 'bullet'
+  # Use Rack Mini Profiler for advanced performance profiling
+  gem 'rack-mini-profiler'
   # Use Pry as Rails console replacement
   gem 'pry-rails'
   # Use Awesome Print to make debugging more visually comprehensive
@@ -49,8 +53,6 @@ group :development do
   gem 'spring'
   # This gem implements the rspec command for Spring
   gem 'spring-commands-rspec'
-  # Use Bullet gem to find slow queries and unused eager loading
-  gem 'bullet'
 end
 
 group :test do

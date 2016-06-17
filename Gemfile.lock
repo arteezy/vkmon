@@ -144,6 +144,8 @@ GEM
     public_suffix (2.0.4)
     puma (3.6.0)
     rack (2.0.1)
+    rack-mini-profiler (0.10.1)
+      rack (>= 1.2.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.0.1)
@@ -254,6 +256,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma (~> 3.0)
+  rack-mini-profiler
   rails (~> 5.0.0)
   rspec-rails (~> 3.2)
   sass-rails (~> 5.0)
