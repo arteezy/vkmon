@@ -1,32 +1,38 @@
 <div class='row'>
-  <div class='col-sm-12'>
-    <div class='table-responsive'>
-      <table class='table table-sm table-striped table-hover'>
-        <thead>
-          <tr>
-            <th>VK ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Updated</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @watcher.friends.each do |friend| %>
-            <% if @watcher.added_friends.include?(friend.id) %>
-              <tr class='bg-success' %>
-            <% elsif @watcher.deleted_friends.include?(friend.id) %>
-              <tr class='bg-danger' %>
-            <% else %>
-              <tr>
-            <% end %>
-              <td><%= friend.id %></td>
-              <td><%= friend.first_name %></td>
-              <td><%= friend.last_name %></td>
-              <td><%= friend.updated_at %></td>
-            </tr>
+  <div class='col-sm-4'>
+    <div class='card card-block card-inverse card-info'>
+      <h3 class='card-title'>Friends</h3>
+      <p class='card-text'>
+        <ol>
+          <% @friends.each do |friend| %>
+            <li><%= "(#{friend.id}) - #{friend.first_name} #{friend.last_name}" %></li>
           <% end %>
-        </tbody>
-      </table>
+        </ol>
+      </p>
+    </div>
+  </div>
+  <div class='col-sm-4'>
+    <div class='card card-block card-inverse card-success'>
+      <h3 class='card-title'>Added Friends</h3>
+      <p class='card-text'>
+        <ol>
+          <% @added_friends.each do |friend| %>
+            <li><%= "(#{friend.id}) - #{friend.first_name} #{friend.last_name}" %></li>
+          <% end %>
+        </ol>
+      </p>
+    </div>
+  </div>
+  <div class='col-sm-4'>
+    <div class='card card-block card-inverse card-danger'>
+      <h3 class='card-title'>Deleted Friends</h3>
+      <p class='card-text'>
+        <ol>
+          <% @deleted_friends.each do |friend| %>
+            <li><%= "(#{friend.id}) #{friend.first_name} #{friend.last_name}" %></li>
+          <% end %>
+        </ol>
+      </p>
     </div>
   </div>
 </div>

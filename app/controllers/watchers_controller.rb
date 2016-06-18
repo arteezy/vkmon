@@ -10,7 +10,10 @@ class WatchersController < ApplicationController
 
   # GET /watchers/1
   def show
-    @watcher = Watcher.includes(:friends).find(params[:id])
+    watcher = Watcher.includes(:friends).find(params[:id])
+    @added_friends = watcher.friends.select { |friend| friend.id.in? watcher.added_friends }
+    @deleted_friends = watcher.friends.select { |friend| friend.id.in? watcher.deleted_friends }
+    @friends = watcher.friends - @added_friends - @deleted_friends
   end
 
   # POST /watchers
