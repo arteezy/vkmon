@@ -49,6 +49,9 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  # Use old inline queue adapter for easier debugging
+  config.active_job.queue_adapter = :inline
+
   # Enable Bullet
   config.after_initialize do
     Bullet.enable = true
