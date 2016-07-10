@@ -53,6 +53,8 @@ group :development do
   gem 'spring'
   # This gem implements the rspec command for Spring
   gem 'spring-commands-rspec'
+  # This gem makes Spring watch the filesystem for changes using Listen rather than by polling the filesystem
+  gem 'spring-watcher-listen'
 end
 
 group :test do
