@@ -1,0 +1,10 @@
+<h1>
+  <span class='tag tag-default'>Users: <span class="tag tag-pill tag-primary"><%= User.count %></span></span>
+  <span class='tag tag-default'>Watchers: <span class="tag tag-pill tag-primary"><%= Watcher.count %></span></span>
+  <span class='tag tag-default'>Friends: <span class="tag tag-pill tag-primary"><%= Friend.count %></span></span>
+</h1>
+<h1><span class='tag tag-danger'>Ruby: <%= RUBY_VERSION %></span></h1>
+<h1><span class='tag tag-success'>Rails: <%= Rails.version %></span></h1>
+<h1><span class='tag tag-warning'>Puma: <%= Gem.loaded_specs['puma'].version %></span></h1>
+<h1><span class='tag tag-info'>PostgreSQL: <%= User.connection.select_value('SHOW server_version') %></span></h1>
+<h1><span class='tag tag-primary'><%= Time.now.to_s(:long) %></span></h1>
