@@ -1,6 +1,7 @@
 class WatchersController < ApplicationController
   before_action :require_login
-  before_action :set_watcher, only: :destroy
+  before_action :set_watcher, only: [:show, :destroy]
+  before_action :check_ownership, only: [:show, :destroy]
 
   # GET /watchers
   def index
@@ -10,10 +11,9 @@ class WatchersController < ApplicationController
 
   # GET /watchers/1
   def show
-    watcher = Watcher.includes(:friends).find(params[:id])
-    @added_friends = watcher.friends.select { |friend| friend.id.in? watcher.added_friends }
-    @deleted_friends = watcher.friends.select { |friend| friend.id.in? watcher.deleted_friends }
-    @friends = watcher.friends - @added_friends - @deleted_friends
+    @added_friends = @watcher.friends.select { |friend| friend.id.in? @watcher.added_friends }
+    @deleted_friends = @watcher.friends.select { |friend| friend.id.in? @watcher.deleted_friends }
+    @friends = @watcher.friends - @added_friends - @deleted_friends
   end
 
   # POST /watchers
@@ -24,7 +24,7 @@ class WatchersController < ApplicationController
       FetchFriendsJob.perform_later(@watcher)
       redirect_to watchers_url, notice: 'Successfully created watcher'
     else
-      redirect_to watchers_url, alert: 'Unable to create watcher'
+      redirect_to watchers_url, alert: 'Unable to create watcher!'
     end
   end
 
@@ -37,7 +37,12 @@ class WatchersController < ApplicationController
   private
 
   def set_watcher
-    @watcher = Watcher.find(params[:id])
+    @watcher = Watcher.includes(:friends).find(params[:id])
+  end
+
+  def check_ownership
+    return if @watcher.user == current_user
+    redirect_to watchers_url, alert: 'You can access only your own watchers!'
   end
 
   def watcher_params
