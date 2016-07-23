@@ -4,9 +4,7 @@
       <h3 class='card-title'>Friends</h3>
       <p class='card-text'>
         <ol>
-          <% @friends.each do |friend| %>
-            <li><%= "(#{friend.id}) - #{friend.first_name} #{friend.last_name}" %></li>
-          <% end %>
+          <%= render @friends %>
         </ol>
       </p>
     </div>
@@ -16,9 +14,7 @@
       <h3 class='card-title'>Added Friends</h3>
       <p class='card-text'>
         <ol>
-          <% @added_friends.each do |friend| %>
-            <li><%= "(#{friend.id}) - #{friend.first_name} #{friend.last_name}" %></li>
-          <% end %>
+          <%= render @added_friends %>
         </ol>
       </p>
     </div>
@@ -28,13 +24,11 @@
       <h3 class='card-title'>Deleted Friends</h3>
       <p class='card-text'>
         <ol>
-          <% @deleted_friends.each do |friend| %>
-            <li><%= "(#{friend.id}) #{friend.first_name} #{friend.last_name}" %></li>
-          <% end %>
+          <%= render @deleted_friends %>
         </ol>
       </p>
     </div>
   </div>
 </div>
 
-<%= link_to 'Back', request.referrer || root_path, class: 'btn btn-warning' %>
+<%= link_to 'Back', request.referrer || watchers_path, class: 'btn btn-warning' %>
