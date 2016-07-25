@@ -1,7 +1,7 @@
 class VK
   include HTTParty
   base_uri 'https://api.vk.com/method'
-  default_params v: '5.58'
+  default_params v: '5.60', https: 1
 
   def initialize(user_id)
     @options = { user_id: user_id }
