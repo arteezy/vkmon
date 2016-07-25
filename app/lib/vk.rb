@@ -8,8 +8,9 @@ class VK
   end
 
   def friends(method = :friends, order = :id, lang = 0)
-    fields = %w(nickname domain sex bdate city country photo_200_orig has_mobile
-                contacts education online relation last_seen status universities)
+    fields = %w(nickname sex bdate city country photo_50 photo_200_orig
+                domain contacts education universities online relation
+                has_mobile last_seen status)
     query = @options.merge(order: order, lang: lang, fields: fields.join(','))
     self.class.get("/#{method}.get", query: query)
   end

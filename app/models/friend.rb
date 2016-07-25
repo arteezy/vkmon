@@ -23,6 +23,7 @@ class Friend < ApplicationRecord
     self.bdate       = parse_birthdate(vk_friend['bdate']) if vk_friend['bdate']
     self.city        = vk_friend['city']['title'] if vk_friend.key?('city')
     self.country     = vk_friend['country']['title'] if vk_friend.key?('country')
+    self.thumbnail   = vk_friend['photo_50']
     self.photo       = vk_friend['photo_200_orig']
     self.has_mobile  = vk_friend['has_mobile']
     self.online      = vk_friend['online'] == 1

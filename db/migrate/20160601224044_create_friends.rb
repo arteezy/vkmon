@@ -10,6 +10,7 @@ class CreateFriends < ActiveRecord::Migration[5.0]
       t.string :city
       t.string :country
       t.string :photo, null: false
+      t.string :thumbnail, null: false
       t.boolean :has_mobile
       t.boolean :online, null: false
       t.string :deactivated

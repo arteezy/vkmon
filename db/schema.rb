@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160616183152) do
     t.string   "city"
     t.string   "country"
     t.string   "photo",       null: false
+    t.string   "thumbnail",   null: false
     t.boolean  "has_mobile"
     t.boolean  "online",      null: false
     t.string   "deactivated"

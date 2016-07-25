@@ -1,1 +1,4 @@
-<li><%= "(#{friend.id}) - #{friend.first_name} #{friend.last_name}" %></li>
+<li>
+  <%= image_tag friend.thumbnail, size: 32, class: 'img-fluid' %>
+  <%= "#{friend.first_name} #{friend.last_name}" %>
+</li>
