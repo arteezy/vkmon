@@ -1,8 +1,16 @@
-// Place all the styles related to the Watchers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .row {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.friendlist {
+  color: #2a5885;
+
+  .friend {
+    margin-bottom: 5px;
+  }
+
+  .friend:last-child {
+    margin-bottom: inherit;
+  }
 }

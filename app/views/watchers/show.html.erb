@@ -1,31 +1,31 @@
 <div class='row'>
-  <div class='col-sm-4'>
-    <div class='card card-block card-inverse card-info'>
-      <h3 class='card-title'>Friends</h3>
+  <div class='col-md-4'>
+    <div class='card card-block card-outline-info'>
+      <h3 class='card-title text-md-center'>Friends</h3>
       <p class='card-text'>
-        <ol>
+        <div class='friendlist'>
           <%= render @friends %>
-        </ol>
+        </div>
       </p>
     </div>
   </div>
-  <div class='col-sm-4'>
-    <div class='card card-block card-inverse card-success'>
-      <h3 class='card-title'>Added Friends</h3>
+  <div class='col-md-4'>
+    <div class='card card-block card-outline-success'>
+      <h3 class='card-title text-md-center'>Added Friends</h3>
       <p class='card-text'>
-        <ol>
+        <div class='friendlist'>
           <%= render @added_friends %>
-        </ol>
+        </div>
       </p>
     </div>
   </div>
-  <div class='col-sm-4'>
-    <div class='card card-block card-inverse card-danger'>
-      <h3 class='card-title'>Deleted Friends</h3>
+  <div class='col-md-4'>
+    <div class='card card-block card-outline-danger'>
+      <h3 class='card-title text-md-center'>Deleted Friends</h3>
       <p class='card-text'>
-        <ol>
+        <div class='friendlist'>
           <%= render @deleted_friends %>
-        </ol>
+        </div>
       </p>
     </div>
   </div>
