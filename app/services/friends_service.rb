@@ -5,9 +5,9 @@ class FriendsService
 
   def fetch
     vk = VK.new(@watcher.vk_id)
-    friends = vk.friends['response']['items']
+    friends = vk.friends[:response][:items]
     old_friends = @watcher.friends.pluck(:id)
-    new_friends = friends.map { |i| i['id'] }
+    new_friends = friends.map { |i| i[:id] }
 
     save_friends(friends)
 
@@ -22,7 +22,7 @@ class FriendsService
   def save_friends(friends)
     Friend.transaction do
       friends.each do |friend|
-        new_friend = Friend.find_or_initialize_by(id: friend['id'])
+        new_friend = Friend.find_or_initialize_by(id: friend[:id])
         new_friend.map_attributes_from_api(friend)
         new_friend.watchers |= [@watcher]
         new_friend.save!

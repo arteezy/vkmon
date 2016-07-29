@@ -15,23 +15,23 @@ class Friend < ApplicationRecord
   end
 
   def map_attributes_from_api(vk_friend)
-    self.first_name  = vk_friend['first_name']
-    self.last_name   = vk_friend['last_name']
-    self.sex         = vk_friend['sex'] == 2
-    self.nickname    = vk_friend['nickname']
-    self.domain      = vk_friend['domain']
-    self.bdate       = parse_birthdate(vk_friend['bdate']) if vk_friend['bdate']
-    self.city        = vk_friend['city']['title'] if vk_friend.key?('city')
-    self.country     = vk_friend['country']['title'] if vk_friend.key?('country')
-    self.thumbnail   = vk_friend['photo_50']
-    self.photo       = vk_friend['photo_200_orig']
-    self.has_mobile  = vk_friend['has_mobile']
-    self.online      = vk_friend['online'] == 1
-    self.deactivated = vk_friend['deactivated']
-    self.status      = vk_friend['status']
-    self.last_seen   = Time.at(vk_friend['last_seen']['time']).utc if vk_friend.key?('last_seen')
-    self.platform    = vk_friend['last_seen']['platform'] if vk_friend.key?('last_seen')
-    self.university  = vk_friend['university_name']
-    self.graduation  = vk_friend['graduation']
+    self.first_name  = vk_friend[:first_name]
+    self.last_name   = vk_friend[:last_name]
+    self.sex         = vk_friend[:sex] == 2
+    self.nickname    = vk_friend[:nickname]
+    self.domain      = vk_friend[:domain]
+    self.bdate       = parse_birthdate(vk_friend[:bdate]) if vk_friend[:bdate]
+    self.city        = vk_friend[:city][:title] if vk_friend.key?(:city)
+    self.country     = vk_friend[:country][:title] if vk_friend.key?(:country)
+    self.thumbnail   = vk_friend[:photo_50]
+    self.photo       = vk_friend[:photo_200_orig]
+    self.has_mobile  = vk_friend[:has_mobile]
+    self.online      = vk_friend[:online] == 1
+    self.deactivated = vk_friend[:deactivated]
+    self.status      = vk_friend[:status]
+    self.last_seen   = Time.at(vk_friend[:last_seen][:time]).utc if vk_friend.key?(:last_seen)
+    self.platform    = vk_friend[:last_seen][:platform] if vk_friend.key?(:last_seen)
+    self.university  = vk_friend[:university_name]
+    self.graduation  = vk_friend[:graduation]
   end
 end
