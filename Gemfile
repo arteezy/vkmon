@@ -66,6 +66,8 @@ group :test do
   gem 'database_cleaner', '~> 1.5'
   # Use Launchy as helper to Capybara specs
   gem 'launchy', '~> 2.4'
-  # Use Code Climate to measure test coverage and code quality
-  gem 'codeclimate-test-reporter', '~> 0.6'
+  # SimpleCov is a code coverage analysis tool for Ruby
+  gem 'simplecov'
+  # Use Code Climate to analyze test coverage and code quality
+  gem 'codeclimate-test-reporter'
 end
