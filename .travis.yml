@@ -4,6 +4,8 @@ rvm:
   - 2.3.1
 services:
   - postgresql
+before_script:
+  - psql -c 'create database vkmon_test;' -U postgres
 addons:
   code_climate:
     repo_token: 4dc304037b3711b56720e0037de8973f31060286bef050da39f6df5dd45ef8f3
