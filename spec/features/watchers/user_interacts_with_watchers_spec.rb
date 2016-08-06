@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'support/features/clearance_helpers'
 
 RSpec.feature 'User interacts with watchers' do
-  given(:user) { FactoryGirl.create(:user) }
+  given(:user) { create(:user) }
 
   before(:each) do
     sign_in_with(user.email, user.password)
@@ -32,7 +32,7 @@ RSpec.feature 'User interacts with watchers' do
   end
 
   scenario 'opens his own watcher' do
-    watcher = FactoryGirl.create(:watcher, user: user)
+    watcher = create(:watcher, user: user)
 
     visit watcher_path(watcher)
 
@@ -40,8 +40,8 @@ RSpec.feature 'User interacts with watchers' do
   end
 
   scenario 'tries to open someone\'s other watcher' do
-    other_user = FactoryGirl.create(:user)
-    other_watcher = FactoryGirl.create(:watcher, user: other_user)
+    other_user = create(:user)
+    other_watcher = create(:watcher, user: other_user)
 
     visit watcher_path(other_watcher)
 
@@ -49,7 +49,7 @@ RSpec.feature 'User interacts with watchers' do
   end
 
   scenario 'destroys watcher' do
-    watcher = FactoryGirl.create(:watcher, user: user)
+    watcher = create(:watcher, user: user)
 
     visit watchers_path
 
