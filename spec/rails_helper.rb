@@ -7,8 +7,14 @@ require 'clearance/rspec'
 
 ActiveRecord::Migration.maintain_test_schema!
 
+VCR.configure do |config|
+  config.cassette_library_dir = 'spec/cassettes'
+  config.hook_into :webmock
+end
+
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include ActiveJob::TestHelper
 
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!

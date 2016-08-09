@@ -70,4 +70,8 @@ group :test do
   gem 'simplecov'
   # Use Code Climate to analyze test coverage and code quality
   gem 'codeclimate-test-reporter'
+  # Library for stubbing and setting expectations on HTTP requests in Ruby
+  gem 'webmock'
+  # Use VCR gem to record external requests to cassetes and reuse them in tests
+  gem 'vcr'
 end
