@@ -10,6 +10,7 @@ FactoryGirl.define do
     city { Faker::Address.city }
     country { Faker::Address.country }
     photo { Faker::Avatar.image }
+    thumbnail { Faker::Avatar.image }
     has_mobile { Faker::Boolean.boolean }
     online { Faker::Boolean.boolean }
     status { Faker::Lorem.sentence }

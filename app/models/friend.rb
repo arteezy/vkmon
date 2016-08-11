@@ -1,18 +1,7 @@
 class Friend < ApplicationRecord
   has_and_belongs_to_many :watchers
-  validates :first_name, :last_name, :photo, :domain, presence: true
+  validates :first_name, :last_name, :photo, :thumbnail, :domain, presence: true
   validates :sex, :online, inclusion: { in: [true, false] }
-
-  def parse_birthdate(str)
-    if str.size > 5
-      Date.parse(str)
-    else
-      # for cases when year of birth is hidden
-      # 2020 is a leap year, handles 29 february and is inside UNIX time bounds
-      # it is impossible to register in VK with 2020 birthyear until 2036
-      Date.parse("#{str}.2020")
-    end
-  end
 
   def map_attributes_from_api(vk_friend)
     self.first_name  = vk_friend[:first_name]
@@ -33,5 +22,18 @@ class Friend < ApplicationRecord
     self.platform    = vk_friend[:last_seen][:platform] if vk_friend.key?(:last_seen)
     self.university  = vk_friend[:university_name]
     self.graduation  = vk_friend[:graduation]
+  end
+
+  private
+
+  def parse_birthdate(str)
+    if str.size > 5
+      Date.parse(str)
+    else
+      # for cases when year of birth is hidden
+      # 2020 is a leap year, handles 29 february and is inside UNIX time bounds
+      # it is impossible to register in VK with 2020 birthyear until 2036
+      Date.parse("#{str}.2020")
+    end
   end
 end
