@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe FriendsService, type: :service do
+describe FriendsService, type: :service do
   it 'fetches and saves friends of watcher' do
     VCR.use_cassette('id2') do
       watcher = create(:watcher, vk_id: 2)

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'User visits status page' do
+feature 'User visits status page' do
   scenario 'sees sign in requirement' do
     visit status_path
     expect(page).to have_content 'sign in to continue'

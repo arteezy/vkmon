@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Watcher, type: :model do
+describe Watcher, type: :model do
   it 'has a valid factory' do
     expect(build(:watcher)).to be_valid
   end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe FetchFriendsJob, type: :job do
+describe FetchFriendsJob, type: :job do
   let(:watcher) { create(:watcher) }
 
   it 'queues the job' do

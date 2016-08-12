@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'support/features/clearance_helpers'
 
-RSpec.feature 'User interacts with watchers' do
+feature 'User interacts with watchers' do
   given(:user) { create(:user) }
 
   before(:each) do

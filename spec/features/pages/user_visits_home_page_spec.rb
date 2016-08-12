@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'User visits home page' do
+feature 'User visits home page' do
   scenario 'opens root path' do
     visit '/'
     expect(current_path).to eq root_path
