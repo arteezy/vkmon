@@ -1,16 +1,14 @@
 <div class='row'>
   <div class='col-sm-8'>
-    <%= form_for @watcher, html: { class: 'form-inline' } do |f| %>
+    <%= form_tag '/watchers', method: 'post', class: 'form-inline' do |f| %>
       <div class='form-group'>
-        <%= f.text_field :vk_id, class: 'form-control', placeholder: 'VK ID' %>
+        <%= text_field_tag :vk_url, nil,
+          name: 'watcher[vk_url]',
+          class: 'form-control',
+          placeholder: 'vk.com URL',
+          size: 30 %>
       </div>
-      <div class='form-group'>
-        <%= f.text_field :name, class: 'form-control', placeholder: 'Full Name' %>
-      </div>
-      <div class='form-group'>
-        <%= f.text_field :photo, class: 'form-control', placeholder: 'Photo' %>
-      </div>
-      <%= f.submit 'Create', class: 'btn btn-danger' %>
+      <%= submit_tag 'Create', class: 'btn btn-success' %>
     <% end %>
   </div>
 </div>
@@ -22,6 +20,7 @@
         <thead>
           <tr>
             <th>VK ID</th>
+            <th>Photo</th>
             <th>Name</th>
             <th>Friends</th>
             <th>Destroy?</th>
@@ -30,10 +29,11 @@
         <tbody>
           <% @watchers.each do |watcher| %>
             <tr>
-              <td><%= link_to watcher.vk_id, watcher %></td>
-              <td><%= watcher.name %></td>
-              <td><%= watcher.friends.size %></td>
-              <td><%= link_to 'Destroy', watcher, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
+              <td class="align-middle"><%= link_to watcher.vk_id, watcher %></td>
+              <td class="align-middle"><%= image_tag watcher.photo, size: 50, class: 'img-fluid rounded-circle' %></td>
+              <td class="align-middle"><%= watcher.name %></td>
+              <td class="align-middle"><%= watcher.friends.size %></td>
+              <td class="align-middle"><%= link_to 'Destroy', watcher, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
             </tr>
           <% end %>
         </tbody>

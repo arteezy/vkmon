@@ -18,8 +18,19 @@ class WatchersController < ApplicationController
 
   # POST /watchers
   def create
-    @watcher = Watcher.new(watcher_params)
-    @watcher.user = current_user
+    attrs =
+      if watcher_params[:vk_url].present?
+        vk_id = Watcher.parse_vk_id(watcher_params[:vk_url])
+        vk_user = VK.new(vk_id).users[:response].first
+        {
+          vk_id: vk_user[:id],
+          name: "#{vk_user[:first_name]} #{vk_user[:last_name]}",
+          photo: vk_user[:photo_50],
+          user: current_user
+        }
+      end
+
+    @watcher = Watcher.new(attrs)
     if @watcher.save
       FetchFriendsJob.perform_later(@watcher)
       redirect_to watchers_url, notice: 'Successfully created watcher'
@@ -46,6 +57,6 @@ class WatchersController < ApplicationController
   end
 
   def watcher_params
-    params.require(:watcher).permit(:vk_id, :name, :photo)
+    params.require(:watcher).permit(:vk_url)
   end
 end
