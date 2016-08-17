@@ -11,24 +11,20 @@ feature 'User interacts with watchers' do
   scenario 'creates new watcher' do
     visit watchers_path
 
-    fill_in 'VK ID', with: rand(1000)
-    fill_in 'Full Name', with: 'John Doe'
-    fill_in 'Photo', with: 'https://example.com/image.png'
-    click_button 'Create'
+    VCR.use_cassette('id1') do
+      fill_in :vk_url, with: 'vk.com/id1'
+      click_button 'Create'
+    end
 
     expect(page).to have_content 'Successfully created watcher'
-    expect(page).to have_content 'John Doe'
   end
 
   scenario 'fails to create new watcher' do
     visit watchers_path
 
-    fill_in 'Full Name', with: 'John Doe'
-    fill_in 'Photo', with: 'https://example.com/image.png'
     click_button 'Create'
 
     expect(page).to have_content 'Unable to create watcher!'
-    expect(page).not_to have_content 'John Doe'
   end
 
   scenario 'opens his own watcher' do
