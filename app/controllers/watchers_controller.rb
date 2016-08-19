@@ -11,8 +11,8 @@ class WatchersController < ApplicationController
 
   # GET /watchers/1
   def show
-    @added_friends = @watcher.friends.select { |friend| friend.id.in? @watcher.added_friends }
-    @deleted_friends = @watcher.friends.select { |friend| friend.id.in? @watcher.deleted_friends }
+    @added_friends = @watcher.friends.select { |friend| friend.id.in? @watcher.added_friends_ids }
+    @deleted_friends = @watcher.friends.select { |friend| friend.id.in? @watcher.deleted_friends_ids }
     @friends = @watcher.friends - @added_friends - @deleted_friends
   end
 

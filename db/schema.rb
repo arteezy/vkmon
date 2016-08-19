@@ -60,11 +60,11 @@ ActiveRecord::Schema.define(version: 20160616183152) do
     t.integer  "vk_id"
     t.string   "name"
     t.string   "photo"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.integer  "user_id"
-    t.integer  "added_friends",   default: [],              array: true
-    t.integer  "deleted_friends", default: [],              array: true
+    t.integer  "added_friends_ids",   default: [],              array: true
+    t.integer  "deleted_friends_ids", default: [],              array: true
     t.index ["user_id"], name: "index_watchers_on_user_id", using: :btree
   end
 
