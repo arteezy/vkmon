@@ -5,7 +5,7 @@ default: &default
 
 development:
   <<: *default
-  database: vkmon_development
+  database: vkmon_dev
 
 test:
   <<: *default
