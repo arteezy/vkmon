@@ -5,7 +5,7 @@ ruby '2.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18'
+gem 'pg', '~> 0.19'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -15,11 +15,13 @@ gem 'uglifier', '~> 3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Use Bootstrap 4 as CSS framework
-gem 'bootstrap', '~> 4.0.0.alpha4'
+gem 'bootstrap', '~> 4.0.0.alpha5'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+# Turbolinks makes following links in your web application faster
+gem 'turbolinks', '~> 5.0.0'
 # Use Clearance for authentication with email & password
 gem 'clearance', '~> 1.14'
 # Fast Ruby HTTP client with timeouts and streaming support

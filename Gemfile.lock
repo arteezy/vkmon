@@ -227,6 +227,9 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.5)
     tilt (2.0.5)
+    turbolinks (5.0.1)
+      turbolinks-source (~> 5)
+    turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (3.0.4)
@@ -250,7 +253,7 @@ DEPENDENCIES
   awesome_print
   better_errors
   binding_of_caller
-  bootstrap (~> 4.0.0.alpha4)
+  bootstrap (~> 4.0.0.alpha5)
   bullet
   capybara (~> 2.4)
   clearance (~> 1.14)
@@ -264,7 +267,7 @@ DEPENDENCIES
   jquery-rails
   launchy (~> 2.4)
   listen (~> 3.1)
-  pg (~> 0.18)
+  pg (~> 0.19)
   pry-byebug
   pry-rails
   puma (~> 3.0)
@@ -276,6 +279,7 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   spring-watcher-listen
+  turbolinks (~> 5.0.0)
   uglifier (~> 3.0)
   vcr
   webmock
