@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.vk.com/method/users.get?fields=domain,nickname,sex,photo_50,photo_200_orig&https=1&lang=0&name_case=nom&user_ids=id1&v=5.60
+    uri: https://api.vk.com/method/users.get?fields=domain,nickname,sex,last_seen,photo_50,photo_200_orig&https=1&lang=0&name_case=nom&user_ids=id1&v=5.60
     body:
       encoding: US-ASCII
       string: ''
@@ -21,17 +21,17 @@ http_interactions:
       Server:
       - Apache
       Date:
-      - Sat, 17 Aug 2016 17:25:40 GMT
+      - Wed, 24 Aug 2016 18:30:18 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '210'
+      - '229'
       Connection:
       - keep-alive
       X-Powered-By:
-      - PHP/3.8981
+      - PHP/3.9306
       Set-Cookie:
-      - remixlang=0; expires=Thu, 04 Jan 2018 10:00:08 GMT; path=/; domain=.vk.com
+      - remixlang=0; expires=Wed, 27 Dec 2017 13:53:31 GMT; path=/; domain=.vk.com
       Pragma:
       - no-cache
       Cache-Control:
@@ -44,8 +44,8 @@ http_interactions:
         OiIiLCJkb21haW4iOiJkdXJvdiIsInBob3RvXzUwIjoiaHR0cHM6XC9cL3Bw
         LnZrLm1lXC9jNjI5MjMxXC92NjI5MjMxMDAxXC9jNTQzXC9GZkItLWJPRVZP
         WS5qcGciLCJwaG90b18yMDBfb3JpZyI6Imh0dHBzOlwvXC9wcC52ay5tZVwv
-        YzYyOTIzMVwvdjYyOTIzMTAwMVwvYzUzNVwvQW9scTdRb2hpMm8uanBnIn1d
-        fQ==
+        YzYyOTIzMVwvdjYyOTIzMTAwMVwvYzUzNVwvQW9scTdRb2hpMm8uanBnIiwi
+        bGFzdF9zZWVuIjp7InRpbWUiOjB9fV19
     http_version:
-  recorded_at: Sat, 17 Aug 2016 17:25:40 GMT
+  recorded_at: Wed, 24 Aug 2016 18:30:18 GMT
 recorded_with: VCR 3.0.3

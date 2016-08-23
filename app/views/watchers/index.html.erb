@@ -23,17 +23,19 @@
             <th>Photo</th>
             <th>Name</th>
             <th>Friends</th>
+            <th>Last Seen</th>
             <th>Destroy?</th>
           </tr>
         </thead>
         <tbody>
           <% @watchers.each do |watcher| %>
             <tr>
-              <td class="align-middle"><%= link_to watcher.vk_id, watcher %></td>
-              <td class="align-middle"><%= image_tag watcher.photo, size: 50, class: 'img-fluid rounded-circle' %></td>
-              <td class="align-middle"><%= watcher.name %></td>
-              <td class="align-middle"><%= watcher.friends.size %></td>
-              <td class="align-middle"><%= link_to 'Destroy', watcher, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
+              <td class='align-middle'><%= link_to watcher.vk_id, watcher %></td>
+              <td class='align-middle'><%= image_tag watcher.photo, size: 50, class: 'img-fluid rounded-circle' %></td>
+              <td class='align-middle'><%= watcher.name %></td>
+              <td class='align-middle'><%= watcher.friends.size %></td>
+              <td class='align-middle'><%= watcher.last_seen %></td>
+              <td class='align-middle'><%= link_to 'Destroy', watcher, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
             </tr>
           <% end %>
         </tbody>

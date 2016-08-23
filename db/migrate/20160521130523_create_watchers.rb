@@ -4,6 +4,7 @@ class CreateWatchers < ActiveRecord::Migration[5.0]
       t.integer :vk_id
       t.string :name
       t.string :photo
+      t.datetime :last_seen
 
       t.timestamps null: false
     end

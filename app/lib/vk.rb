@@ -8,7 +8,7 @@ class VK
   end
 
   def users(name_case = :nom)
-    fields = %w(domain nickname sex photo_50 photo_200_orig)
+    fields = %w(nickname sex domain last_seen photo_50 photo_200_orig)
     query = @options.except(:user_id).merge(name_case: name_case, fields: fields.join(','))
     self.class.get('/users.get', query: query).deep_symbolize_keys
   end

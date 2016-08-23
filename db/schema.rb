@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20160616183152) do
     t.integer  "vk_id"
     t.string   "name"
     t.string   "photo"
+    t.datetime "last_seen"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "user_id"
