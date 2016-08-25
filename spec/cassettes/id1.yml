@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.vk.com/method/users.get?fields=domain,nickname,sex,last_seen,photo_50,photo_200_orig&https=1&lang=0&name_case=nom&user_ids=id1&v=5.60
+    uri: https://api.vk.com/method/users.get?fields=nickname,sex,domain,last_seen,photo_50,photo_200_orig&https=1&lang=0&name_case=nom&user_ids=id1&v=5.60
     body:
       encoding: US-ASCII
       string: ''

@@ -13,5 +13,7 @@
 //= require jquery3
 //= require jquery_ujs
 //= require turbolinks
+//= require moment
+//= require moment-timezone
 //= require bootstrap
 //= require_tree .
