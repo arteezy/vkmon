@@ -77,3 +77,9 @@ group :test do
   # Use VCR gem to record external requests to cassetes and reuse them in tests
   gem 'vcr'
 end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-moment'
+  gem 'rails-assets-moment-timezone'
+  gem 'rails-assets-tether'
+end

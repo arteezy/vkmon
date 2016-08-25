@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require moment
 //= require moment-timezone
+//= require tether
 //= require bootstrap
 //= require_tree .
