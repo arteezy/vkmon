@@ -1,0 +1,23 @@
+<div class='row'>
+  <div class='offset-md-4 col-md-4'>
+    <div id='clearance' class='sign-up'>
+      <div class='card card-outline-primary'>
+        <h4 class='card-header card-primary text-md-center'>
+          <%= t('.title') %>
+        </h4>
+        <div class='card-block'>
+          <%= form_for @user do |form| %>
+            <%= render partial: '/users/form', object: form %>
+
+            <div class='form-group'>
+              <%= form.submit class: 'btn btn-primary' %>
+            </div>
+
+            <div class='other-links'>
+              <%= link_to t('.sign_in'), sign_in_path, class: 'card-link' %>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>
