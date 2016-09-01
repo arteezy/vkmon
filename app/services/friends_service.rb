@@ -11,9 +11,12 @@ class FriendsService
 
     save_friends(friends)
 
-    return if old_friends.empty?
-    @watcher.added_friends_ids   |= new_friends - old_friends
-    @watcher.deleted_friends_ids |= old_friends - new_friends
+    if old_friends.present?
+      @watcher.added_friends_ids   |= new_friends - old_friends
+      @watcher.deleted_friends_ids |= old_friends - new_friends
+    end
+
+    @watcher.update_friends_count
     @watcher.save!
   end
 

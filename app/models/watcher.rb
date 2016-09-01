@@ -4,6 +4,10 @@ class Watcher < ApplicationRecord
   validates :vk_id, :name, :photo, :user, presence: true
   validates :vk_id, numericality: true
 
+  def update_friends_count
+    self.friends_count = friend_ids.count
+  end
+
   def self.parse_vk_id(vk_url)
     return if vk_url.empty?
     regex = %r{(http(s)?:\/\/)?(vkontakte\.ru|vk\.com)?\/?[a-zA-Z0-9._]+}

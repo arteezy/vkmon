@@ -3,6 +3,14 @@ class Friend < ApplicationRecord
   validates :first_name, :last_name, :photo, :thumbnail, :domain, presence: true
   validates :sex, :online, inclusion: { in: [true, false] }
 
+  before_destroy :decrement_watchers_counter
+
+  def decrement_watchers_counter
+    watchers.each do |watcher|
+      watcher.decrement!(:friends_count)
+    end
+  end
+
   def map_attributes_from_api(vk_friend)
     self.first_name  = vk_friend[:first_name]
     self.last_name   = vk_friend[:last_name]

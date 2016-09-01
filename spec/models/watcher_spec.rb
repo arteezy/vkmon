@@ -36,4 +36,23 @@ describe Watcher, type: :model do
       expect(watcher.errors[:user]).to include('can\'t be blank')
     end
   end
+
+  context 'counter cache for associated friends' do
+    let(:watcher) { create(:watcher) }
+
+    it 'correctly updates counter' do
+      2.times { create(:friend, watchers: [watcher]) }
+      expect {
+        watcher.update_friends_count
+      }.to change(watcher, :friends_count).by(2)
+    end
+
+    it 'correctly decrements' do
+      friend = create(:friend, watchers: [watcher])
+      watcher.update_friends_count
+      expect {
+        friend.destroy
+      }.to change(watcher, :friends_count).by(-1)
+    end
+  end
 end
