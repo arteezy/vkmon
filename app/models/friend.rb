@@ -1,6 +1,7 @@
 class Friend < ApplicationRecord
   has_and_belongs_to_many :watchers
-  validates :first_name, :last_name, :photo, :thumbnail, :domain, presence: true
+  validates :first_name, :photo, :thumbnail, :domain, presence: true
+  validates :last_name, length: { minimum: 0, allow_nil: false, message: 'can\'t be nil' }
   validates :sex, :online, inclusion: { in: [true, false] }
 
   before_destroy :decrement_watchers_counter
