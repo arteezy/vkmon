@@ -13,7 +13,8 @@ class WatchersController < ApplicationController
   def show
     @added_friends   = @watcher.friends.select { |friend| friend.id.in? @watcher.added_friends_ids }
     @deleted_friends = @watcher.friends.select { |friend| friend.id.in? @watcher.deleted_friends_ids }
-    @friends         = @watcher.friends - @added_friends - @deleted_friends
+    friends_diff     = @watcher.friends - @added_friends - @deleted_friends
+    @friends         = Kaminari.paginate_array(friends_diff).page(params[:page]).per(50)
   end
 
   # POST /watchers

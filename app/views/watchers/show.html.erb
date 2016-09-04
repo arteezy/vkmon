@@ -4,8 +4,11 @@
       <h3 class='card-title text-md-center'>Friends</h3>
       <p class='card-text'>
         <div class='friendlist'>
-          <%= render @friends %>
+          <div class='page'>
+            <%= render @friends %>
+          </div>
         </div>
+        <%= paginate @friends, remote: true %>
       </p>
     </div>
   </div>

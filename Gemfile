@@ -26,6 +26,8 @@ gem 'turbolinks', '~> 5.0.0'
 gem 'clearance', '~> 1.14'
 # Fast Ruby HTTP client with timeouts and streaming support
 gem 'httparty', '~> 0.14'
+# Use Kaminari gem for pagination
+gem 'kaminari'
 
 group :development, :test do
   # Use RSpec for advanced testing
@@ -82,4 +84,5 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-moment'
   gem 'rails-assets-moment-timezone'
   gem 'rails-assets-tether'
+  gem 'rails-assets-infinite-scroll'
 end
