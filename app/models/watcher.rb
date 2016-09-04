@@ -1,8 +1,11 @@
 class Watcher < ApplicationRecord
   belongs_to :user
-  has_and_belongs_to_many :friends
+  has_and_belongs_to_many :friends, -> { order(first_name: :asc) }
+
   validates :vk_id, :name, :photo, :user, presence: true
   validates :vk_id, numericality: true
+
+  default_scope { order(created_at: :desc) }
 
   def update_friends_count
     self.friends_count = friend_ids.count
