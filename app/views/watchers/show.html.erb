@@ -5,10 +5,9 @@
       <p class='card-text'>
         <div class='friendlist'>
           <div class='page'>
-            <%= render @friends %>
+            <%= render partial: 'friends/friend', collection: @friends, cached: true %>
           </div>
         </div>
-        <%= paginate @friends, remote: true %>
       </p>
     </div>
   </div>
