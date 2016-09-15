@@ -1,4 +1,4 @@
 <div class='friend'>
-  <%= image_tag friend.thumbnail, size: 50, class: 'img-fluid rounded-circle' %>
+  <%= tag :img, data: { original: friend.thumbnail }, width: 50, height: 50, class: 'lazy img-fluid rounded-circle' %>
   <%= "#{friend.first_name} #{friend.last_name}" %>
 </div>

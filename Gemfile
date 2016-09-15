@@ -84,5 +84,5 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-moment'
   gem 'rails-assets-moment-timezone'
   gem 'rails-assets-tether'
-  gem 'rails-assets-infinite-scroll'
+  gem 'rails-assets-jquery.lazyload'
 end

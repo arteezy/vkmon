@@ -17,5 +17,5 @@
 //= require moment-timezone
 //= require tether
 //= require bootstrap
-//= require infinite-scroll
+//= require jquery.lazyload
 //= require_tree .
