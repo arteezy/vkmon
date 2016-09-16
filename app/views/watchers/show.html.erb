@@ -4,9 +4,7 @@
       <h3 class='card-title text-md-center'>Friends</h3>
       <p class='card-text'>
         <div class='friendlist'>
-          <div class='page'>
-            <%= render partial: 'friends/friend', collection: @friends, cached: true %>
-          </div>
+          <%= render partial: 'friends/friend', collection: @friends, cached: true %>
         </div>
       </p>
     </div>
@@ -16,7 +14,7 @@
       <h3 class='card-title text-md-center'>Added Friends</h3>
       <p class='card-text'>
         <div class='friendlist'>
-          <%= render @added_friends %>
+          <%= render partial: 'friends/friend', collection: @added_friends, cached: true %>
         </div>
       </p>
     </div>
@@ -26,7 +24,7 @@
       <h3 class='card-title text-md-center'>Deleted Friends</h3>
       <p class='card-text'>
         <div class='friendlist'>
-          <%= render @deleted_friends %>
+          <%= render partial: 'friends/friend', collection: @deleted_friends, cached: true %>
         </div>
       </p>
     </div>
