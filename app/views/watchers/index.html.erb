@@ -36,12 +36,12 @@
               <td class='align-middle'>
                 <%= watcher.friends_count %>
                 <% if watcher.added_friends_ids.present? %>
-                  <span class='tag tag-success'>
+                  <span class='badge badge-success'>
                     +<%= watcher.added_friends_ids.size %>
                   </span>
                 <% end %>
                 <% if watcher.deleted_friends_ids.present? %>
-                  <span class='tag tag-danger'>
+                  <span class='badge badge-danger'>
                     -<%= watcher.deleted_friends_ids.size %>
                   </span>
                 <% end %>

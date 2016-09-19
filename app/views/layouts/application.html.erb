@@ -1,27 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
   <head>
     <title>VKMon</title>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <meta http-equiv='x-ua-compatible' content='ie=edge'>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <div class='container'>
-      <nav class='navbar navbar-full navbar-dark bg-primary'>
+      <nav class='navbar navbar-toggleable-sm navbar-inverse bg-primary'>
+        <button class='navbar-toggler navbar-toggler-right' type='button' data-toggle='collapse' data-target='#collapsed-navbar' aria-controls='collapsed-navbar' aria-expanded='false' aria-label='Toggle navigation'>
+          <span class='navbar-toggler-icon'></span>
+        </button>
         <%= link_to 'VKMon', root_path, class: 'navbar-brand' %>
-        <div class='nav navbar-nav'>
-          <%= link_to 'Watchers', watchers_path, class: 'nav-link nav-item' %>
-          <%= link_to 'Status', status_path, class: 'nav-link nav-item' %>
-        </div>
-        <div class='nav navbar-nav float-xs-right'>
-        <% if signed_in? %>
-          <%= link_to current_user.email, new_password_path, class: 'nav-link nav-item' %>
-          <%= link_to 'Sign out', sign_out_path, method: :delete, class: 'nav-link nav-item' %>
-        <% else %>
-          <%= link_to 'Sign in', sign_in_path, class: 'nav-link nav-item' %>
-        <% end %>
+        <div class='collapse navbar-collapse' id='collapsed-navbar'>
+          <div class='navbar-nav mr-auto'>
+            <%= link_to 'Watchers', watchers_path, class: 'nav-item nav-link' %>
+            <%= link_to 'Status', status_path, class: 'nav-item nav-link' %>
+          </div>
+          <div class='navbar-nav'>
+          <% if signed_in? %>
+            <%= link_to current_user.email, new_password_path, class: 'nav-item nav-link' %>
+            <%= link_to 'Sign out', sign_out_path, method: :delete, class: 'nav-item nav-link' %>
+          <% else %>
+            <%= link_to 'Sign in', sign_in_path, class: 'nav-item nav-link' %>
+          <% end %>
+          </div>
         </div>
       </nav>
     </div>
