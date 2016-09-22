@@ -1,16 +1,20 @@
 .row {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
 }
 
 .friendlist {
   color: #2a5885;
 
   .friend {
-    margin-bottom: 5px;
+    margin-bottom: .25rem;
   }
 
   .friend:last-child {
     margin-bottom: inherit;
   }
+}
+
+.card-block {
+  margin-bottom: 1rem;
 }
