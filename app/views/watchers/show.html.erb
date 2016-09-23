@@ -1,15 +1,5 @@
 <div class='row'>
   <div class='col-md-4'>
-    <div class='card card-block card-outline-info'>
-      <h3 class='card-title text-md-center'>Friends</h3>
-      <p class='card-text'>
-        <div class='friendlist'>
-          <%= render partial: 'friends/friend', collection: @friends, cached: true %>
-        </div>
-      </p>
-    </div>
-  </div>
-  <div class='col-md-4'>
     <div class='card card-block card-outline-success'>
       <h3 class='card-title text-md-center'>Added Friends</h3>
       <p class='card-text'>
@@ -25,6 +15,16 @@
       <p class='card-text'>
         <div class='friendlist'>
           <%= render partial: 'friends/friend', collection: @deleted_friends, cached: true %>
+        </div>
+      </p>
+    </div>
+  </div>
+  <div class='col-md-4 flex-first'>
+    <div class='card card-block card-outline-info'>
+      <h3 class='card-title text-md-center'>Friends</h3>
+      <p class='card-text'>
+        <div class='friendlist'>
+          <%= render partial: 'friends/friend', collection: @friends, cached: true %>
         </div>
       </p>
     </div>
