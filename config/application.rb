@@ -8,8 +8,8 @@ Bundler.require(*Rails.groups)
 
 module Vkmon
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    Clearance.configure do |config|
+      config.rotate_csrf_on_sign_in = true
+    end
   end
 end
