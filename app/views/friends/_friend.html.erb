@@ -1,4 +1,8 @@
 <div class='friend'>
-  <%= tag :img, data: { original: friend.thumbnail }, width: 50, height: 50, class: 'lazy img-fluid rounded-circle' %>
-  <%= "#{friend.first_name} #{friend.last_name}" %>
+  <%= link_to "https://vk.com/#{friend.domain}", class: 'img-link-no-underline' do %>
+    <%= tag :img, data: { original: friend.thumbnail }, width: 50, height: 50, class: 'lazy img-fluid rounded-circle' %>
+  <% end %>
+  <%= link_to "https://vk.com/#{friend.domain}" do %>
+    <%= "#{friend.first_name} #{friend.last_name}" %>
+  <% end %>
 </div>
