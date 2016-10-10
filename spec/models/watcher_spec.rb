@@ -24,6 +24,12 @@ describe Watcher, type: :model do
       expect(watcher.errors[:name]).to include('can\'t be blank')
     end
 
+    it 'is invalid without a domain' do
+      watcher = build(:watcher, domain: nil)
+      watcher.valid?
+      expect(watcher.errors[:domain]).to include('can\'t be blank')
+    end
+
     it 'is invalid without a photo' do
       watcher = build(:watcher, photo: nil)
       watcher.valid?

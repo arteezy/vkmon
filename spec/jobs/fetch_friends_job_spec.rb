@@ -16,7 +16,7 @@ describe FetchFriendsJob, type: :job do
   end
 
   it 'executes perform' do
-    expect(FriendsService).to receive_message_chain(:new, :fetch)
+    expect(WatchersFriendsService).to receive_message_chain(:new, :fetch_friends)
     perform_enqueued_jobs {
       FetchFriendsJob.perform_later(watcher)
     }

@@ -57,13 +57,14 @@ ActiveRecord::Schema.define(version: 20160830181154) do
   end
 
   create_table "watchers", force: :cascade do |t|
-    t.integer  "vk_id"
-    t.string   "name"
-    t.string   "photo"
-    t.datetime "last_seen"
+    t.integer  "vk_id",                            null: false
+    t.string   "name",                             null: false
+    t.string   "photo",                            null: false
+    t.string   "domain",                           null: false
+    t.datetime "last_seen",                        null: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.integer  "user_id"
+    t.integer  "user_id",                          null: false
     t.integer  "added_friends_ids",   default: [],              array: true
     t.integer  "deleted_friends_ids", default: [],              array: true
     t.integer  "friends_count",       default: 0,  null: false
