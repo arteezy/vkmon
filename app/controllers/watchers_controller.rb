@@ -18,22 +18,10 @@ class WatchersController < ApplicationController
 
   # POST /watchers
   def create
-    attrs = {}
-
     if watcher_params[:vk_url].present?
       vk_id = Watcher.parse_vk_id(watcher_params[:vk_url])
-      vk_user = VK.new(vk_id).users[:response].first
-      attrs = {
-        vk_id: vk_user[:id],
-        name:  "#{vk_user[:first_name]} #{vk_user[:last_name]}",
-        photo: vk_user[:photo_50],
-        user:  current_user
-      }
-      attrs[:last_seen] = Time.at(vk_user[:last_seen][:time]).utc if vk_user.key?(:last_seen)
-    end
-
-    @watcher = Watcher.new(attrs)
-    if @watcher.save
+      @watcher = Watcher.new(domain: vk_id, user: current_user)
+      WatchersFriendsService.new(@watcher).fetch_watcher
       FetchFriendsJob.perform_later(@watcher)
       redirect_to watchers_url, notice: 'Successfully created watcher'
     else

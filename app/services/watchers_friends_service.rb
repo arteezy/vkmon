@@ -1,9 +1,22 @@
-class FriendsService
+class WatchersFriendsService
   def initialize(watcher)
     @watcher = watcher
   end
 
-  def fetch
+  def fetch_watcher
+    vk = VK.new(@watcher.domain)
+    vk_user = vk.users[:response].first
+    attrs = {
+      vk_id:  vk_user[:id],
+      name:   "#{vk_user[:first_name]} #{vk_user[:last_name]}",
+      domain: vk_user[:domain],
+      photo:  vk_user[:photo_50]
+    }
+    attrs[:last_seen] = Time.at(vk_user[:last_seen][:time]).utc if vk_user.key?(:last_seen)
+    @watcher.update(attrs)
+  end
+
+  def fetch_friends
     vk = VK.new(@watcher.vk_id)
     friends = vk.friends[:response][:items]
     old_friends = @watcher.friends.pluck(:id)
