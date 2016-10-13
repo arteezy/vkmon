@@ -5,7 +5,7 @@ class CreateWatchers < ActiveRecord::Migration[5.0]
       t.string :name, null: false
       t.string :photo, null: false
       t.string :domain, null: false
-      t.datetime :last_seen, null: false
+      t.datetime :last_seen
 
       t.timestamps null: false
     end

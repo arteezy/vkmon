@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20160830181154) do
     t.string   "name",                             null: false
     t.string   "photo",                            null: false
     t.string   "domain",                           null: false
-    t.datetime "last_seen",                        null: false
+    t.datetime "last_seen"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "user_id",                          null: false
