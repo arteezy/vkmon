@@ -15,7 +15,7 @@ class Friend < ApplicationRecord
     end
   end
 
-  def map_attributes_from_api(vk_friend)
+  def map_api_attributes(vk_friend)
     self.first_name  = vk_friend[:first_name]
     self.last_name   = vk_friend[:last_name]
     self.sex         = vk_friend[:sex] == 2
