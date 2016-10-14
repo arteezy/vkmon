@@ -1,7 +1,7 @@
-namespace :watchers do
-  desc 'Refresh all watchers'
+namespace :friends do
+  desc 'Refresh all friends'
   task refresh: :environment do
-    puts 'Queuing watchers refresh...'
+    puts 'Queuing friends refresh...'
     Watcher.find_each do |watcher|
       FetchFriendsJob.perform_later(watcher)
     end
